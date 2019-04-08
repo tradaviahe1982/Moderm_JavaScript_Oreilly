@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function getSentence() {
+            var sentence = prompt("Please enter a sentence");
+            if (sentence == null || sentence == "") {
+                alert("Please enter some words!");
+            }
+            else {
+                var howManyWords = countWords(sentence);
+                alert(howManyWords + " words in the sentence.");
+            }
+        }
+        function countWords(sentence) {
+            var words = sentence.split(" ");
+            var numWords = words.length;
+            return numWords;
+        }
+        getSentence();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

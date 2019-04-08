@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Movie(title, rating, genre, description) {
+            this.title = title;
+            this.rating = rating;
+            this.genre = genre;
+            this.description = description;
+        }
+        var movieList = [];
+        window.onload = init;
+
+        function init() {
+            var submitButton = document.getElementById("submitButton");
+            submitButton.onclick = getMovieData;
+
+            var show_All_Movie = document.getElementById("showAllMovie");
+            show_All_Movie.onclick = show_AllMovie;
+        }
+
+        function getMovieData() {
+            var titleInput = document.getElementById("title");
+            var title = titleInput.value;
+            var ratingInput = document.getElementById("rating");
+            var rating = parseInt(ratingInput.value);
+            var genreSelect = document.getElementById("genre");
+            var genreOption = genreSelect.options[genreSelect.selectedIndex];
+            var genre = genreOption.value;
+            var descriptionTextarea = document.getElementById("description");
+            var description = descriptionTextarea.value;
+            if (title == null || title == "") {
+                alert("Please enter a movie title");
+                return;
+            }
+            else
+            {
+                var movie = new Movie(title, rating, genre, description);
+                movieList.push(movie);
+                var movies = document.getElementById("movies");
+                movies.innerHTML = "Added " + movie.title + " to the list.";
+                var theForm = document.getElementById("theForm");
+                theForm.reset();
+            }
+        }
+
+        function show_AllMovie() {
+            if (movieList.length > 0) {
+                for (var j = 0; j < movieList.length; j++) {
+                    var movie1 = movieList[i];
+                    alert("Các bộ phim là: " + movie1.title + " " + movie1.rating + " " + movie1.genre + " " + movie1.description + "<br>");
+                    return;
+                }
+            }
+            else
+            {
+                alert ("Danh sách phim không có bộ phim nào!!!");
+                return;
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Movie List Builder</h1>
+<form id="theForm">
+    <label for="title">Movie title: </label>
+    <input id="title" type="text" size="30" required><br>
+    <label for="rating">Rating: </label>
+    1 <input id="rating" type="range" max="5" min="1"> 5<br>
+    <label for="genre">Genre: </label>
+    <select id="genre">
+        <option value="drama">Drama</option>
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="scifi">Sci Fi</option>
+        <option value="thriller">Thriller</option>
+    </select><br>
+    <label for="description">Description:</label><br>
+    <textarea id="description"></textarea>
+    <br>
+    <input type="button" id="submitButton" value="Add movie!"><br>
+</form>
+<input type="button" id="showAllMovie" value="Show movie!"><br>
+<div id="movies">
+</div>
+</body>
+</html>
+</body>
+</html>

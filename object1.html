@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = init;
+        function init()
+        {
+            var concho = {
+                type: "dog",
+                name: "Tilla",
+                weight: 26
+            };
+
+            var conmeo = {
+                type: "cat",
+                name: "Pickles",
+                weight: 7
+            };
+
+            var div = document.getElementById("pets");
+            div.innerHTML =
+                "My " + concho.type + " is named " + concho.name +
+                " and she weighs " + concho.weight + " pounds.";
+
+            var pets = [concho, conmeo];
+            for (var i = 0; i < pets.length; i++) {
+                var pet = pets[i];
+                if (pet.type == "dog") {
+                    div.innerHTML += pet.name + " says Woof! <br>";
+                }
+                else if (pet.type == "cat") {
+                    div.innerHTML += pet.name + " says Meow! <br>";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="pets">
+    </div>
+</body>
+</html>

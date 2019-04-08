@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = init;
+        function Pet(type, name, weight, likes) {
+            this.type = type;
+            this.name = name;
+            this.weight = weight;
+            this.likes = likes;
+            this.meow = function() {
+                return "Meow!";
+            };
+            this.bark = function(howMany) {
+                var says = "";
+                for (var i = 0; i < howMany; i++) {
+                    says += "Woof! ";
+                }
+                return says;
+            };
+        }
+
+        function init() {
+            var annie = new Pet("cat", "Annie", 6, ["sleeping", "teasing pickles"]);
+            var willie = new Pet("dog", "Willie", 45, ["slobbering", "panting", "eating"]);
+            var div = document.getElementById("pets");
+            div.innerHTML = willie.name + " says " + "<br>" + willie.bark(10);
+            div.innerHTML += "<br>" + annie.name + " says " + annie.meow();
+        }
+    </script>
+</head>
+<body>
+    <div id="pets">
+    </div>
+</body>
+</html>

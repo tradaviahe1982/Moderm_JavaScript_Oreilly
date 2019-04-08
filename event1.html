@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = init;
+
+        function init() {
+            var button = document.getElementById("submit");
+            button.onclick = getSentence;
+            var button1 = document.getElementById("submit1");
+            button1.onclick = XoaTrang;
+        }
+
+        function XoaTrang() {
+            var sentenceInput = document.getElementById("sentence");
+            sentenceInput.value = "";
+        }
+
+        function getSentence() {
+            //var sentence = prompt("Please enter a sentence");
+            var sentenceInput = document.getElementById("sentence");
+            var sentence = sentenceInput.value;
+            if (sentence == null || sentence == "")
+            {
+                alert("Please enter some words!");
+            }
+            else
+            {
+                var howManyWords = countWords(sentence);
+                alert(howManyWords + " words in the sentence.");
+            }
+        }
+
+        function countWords(sentence) {
+            var words = sentence.split(" ");
+            var numWords = words.length;
+            return numWords;
+        }
+
+        //getSentence();
+    </script>
+</head>
+<body>
+<form>
+    <label for="sentence">Enter a sentence: </label>
+    <input type="text" id="sentence" size="20" value=""> <br>
+    <input type="button" id="submit" value="Get the number of words!">
+    <input type="button" id="submit1" value="Xóa trắng">
+</form>
+</body>
+</html>
